@@ -36,6 +36,7 @@ bool NFCLoginNet_ServerModule::BeforeShut()
 bool NFCLoginNet_ServerModule::AfterInit()
 {
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_STS_HEART_BEAT, this, &NFCLoginNet_ServerModule::OnHeartBeat);
+	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_VERSION, this, &NFCLoginNet_ServerModule::OnVersionCheck);
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_LOGIN, this, &NFCLoginNet_ServerModule::OnLoginProcess);
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_LOGOUT, this, &NFCLoginNet_ServerModule::OnLogOut);
 	m_pNetModule->AddReceiveCallBack(NFMsg::EGMI_REQ_CONNECT_WORLD, this, &NFCLoginNet_ServerModule::OnSelectWorldProcess);
@@ -121,6 +122,21 @@ void NFCLoginNet_ServerModule::OnClientDisconnect(const NFSOCK nAddress)
 		NFGUID xIdent = pObject->GetClientID();
 		mxClientIdent.RemoveElement(xIdent);
 	}
+}
+
+void NFCLoginNet_ServerModule::OnVersionCheck(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
+{
+	NFGUID nPlayerID;
+	NFMsg::ReqCheckVersion xMsg;
+	if (!m_pNetModule->ReceivePB(nMsgID, msg, nLen, xMsg, nPlayerID))
+	{
+		return;
+	}
+
+	NFMsg::AckVersionCheck xData;
+	xData.set_returncode(NFMsg::AckVersionCheck::DisUpdate);
+
+	m_pNetModule->SendMsgPB(NFMsg::EGameMsgID::EGMI_ACK_VERSION, xData, nSockIndex);
 }
 
 void NFCLoginNet_ServerModule::OnLoginProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)

@@ -39,6 +39,8 @@ void protobuf_ShutdownFile_NFMsgPreGame_2eproto();
 class ServerInfoReport;
 class ServerInfoReportList;
 class AckEventResult;
+class ReqCheckVersion;
+class AckVersionCheck;
 class ReqAccountLogin;
 class ReqAccountLogout;
 class ServerInfo;
@@ -58,6 +60,27 @@ class ServerHeartBeat;
 class RoleOnlineNotify;
 class RoleOfflineNotify;
 
+enum AckVersionCheck_ErrCode {
+  AckVersionCheck_ErrCode_Update = 0,
+  AckVersionCheck_ErrCode_UpdateLua = 1,
+  AckVersionCheck_ErrCode_UpdatePackage = 2,
+  AckVersionCheck_ErrCode_DisUpdate = 3
+};
+LIBPROTOC_EXPORT bool AckVersionCheck_ErrCode_IsValid(int value);
+const AckVersionCheck_ErrCode AckVersionCheck_ErrCode_ErrCode_MIN = AckVersionCheck_ErrCode_Update;
+const AckVersionCheck_ErrCode AckVersionCheck_ErrCode_ErrCode_MAX = AckVersionCheck_ErrCode_DisUpdate;
+const int AckVersionCheck_ErrCode_ErrCode_ARRAYSIZE = AckVersionCheck_ErrCode_ErrCode_MAX + 1;
+
+LIBPROTOC_EXPORT const ::google::protobuf::EnumDescriptor* AckVersionCheck_ErrCode_descriptor();
+inline const ::std::string& AckVersionCheck_ErrCode_Name(AckVersionCheck_ErrCode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    AckVersionCheck_ErrCode_descriptor(), value);
+}
+inline bool AckVersionCheck_ErrCode_Parse(
+    const ::std::string& name, AckVersionCheck_ErrCode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<AckVersionCheck_ErrCode>(
+    AckVersionCheck_ErrCode_descriptor(), name, value);
+}
 enum EServerState {
   EST_CRASH = 0,
   EST_NARMAL = 1,
@@ -451,6 +474,236 @@ class LIBPROTOC_EXPORT AckEventResult : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static AckEventResult* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT ReqCheckVersion : public ::google::protobuf::Message {
+ public:
+  ReqCheckVersion();
+  virtual ~ReqCheckVersion();
+
+  ReqCheckVersion(const ReqCheckVersion& from);
+
+  inline ReqCheckVersion& operator=(const ReqCheckVersion& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ReqCheckVersion& default_instance();
+
+  void Swap(ReqCheckVersion* other);
+
+  // implements Message ----------------------------------------------
+
+  ReqCheckVersion* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ReqCheckVersion& from);
+  void MergeFrom(const ReqCheckVersion& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 platformCode = 1;
+  inline bool has_platformcode() const;
+  inline void clear_platformcode();
+  static const int kPlatformCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 platformcode() const;
+  inline void set_platformcode(::google::protobuf::int32 value);
+
+  // required int32 verionCode = 2;
+  inline bool has_verioncode() const;
+  inline void clear_verioncode();
+  static const int kVerionCodeFieldNumber = 2;
+  inline ::google::protobuf::int32 verioncode() const;
+  inline void set_verioncode(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.ReqCheckVersion)
+ private:
+  inline void set_has_platformcode();
+  inline void clear_has_platformcode();
+  inline void set_has_verioncode();
+  inline void clear_has_verioncode();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 platformcode_;
+  ::google::protobuf::int32 verioncode_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgPreGame_2eproto();
+  friend void protobuf_AssignDesc_NFMsgPreGame_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgPreGame_2eproto();
+
+  void InitAsDefaultInstance();
+  static ReqCheckVersion* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LIBPROTOC_EXPORT AckVersionCheck : public ::google::protobuf::Message {
+ public:
+  AckVersionCheck();
+  virtual ~AckVersionCheck();
+
+  AckVersionCheck(const AckVersionCheck& from);
+
+  inline AckVersionCheck& operator=(const AckVersionCheck& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AckVersionCheck& default_instance();
+
+  void Swap(AckVersionCheck* other);
+
+  // implements Message ----------------------------------------------
+
+  AckVersionCheck* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AckVersionCheck& from);
+  void MergeFrom(const AckVersionCheck& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef AckVersionCheck_ErrCode ErrCode;
+  static const ErrCode Update = AckVersionCheck_ErrCode_Update;
+  static const ErrCode UpdateLua = AckVersionCheck_ErrCode_UpdateLua;
+  static const ErrCode UpdatePackage = AckVersionCheck_ErrCode_UpdatePackage;
+  static const ErrCode DisUpdate = AckVersionCheck_ErrCode_DisUpdate;
+  static inline bool ErrCode_IsValid(int value) {
+    return AckVersionCheck_ErrCode_IsValid(value);
+  }
+  static const ErrCode ErrCode_MIN =
+    AckVersionCheck_ErrCode_ErrCode_MIN;
+  static const ErrCode ErrCode_MAX =
+    AckVersionCheck_ErrCode_ErrCode_MAX;
+  static const int ErrCode_ARRAYSIZE =
+    AckVersionCheck_ErrCode_ErrCode_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  ErrCode_descriptor() {
+    return AckVersionCheck_ErrCode_descriptor();
+  }
+  static inline const ::std::string& ErrCode_Name(ErrCode value) {
+    return AckVersionCheck_ErrCode_Name(value);
+  }
+  static inline bool ErrCode_Parse(const ::std::string& name,
+      ErrCode* value) {
+    return AckVersionCheck_ErrCode_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // required int32 returncode = 1;
+  inline bool has_returncode() const;
+  inline void clear_returncode();
+  static const int kReturncodeFieldNumber = 1;
+  inline ::google::protobuf::int32 returncode() const;
+  inline void set_returncode(::google::protobuf::int32 value);
+
+  // optional string pageurl = 2;
+  inline bool has_pageurl() const;
+  inline void clear_pageurl();
+  static const int kPageurlFieldNumber = 2;
+  inline const ::std::string& pageurl() const;
+  inline void set_pageurl(const ::std::string& value);
+  inline void set_pageurl(const char* value);
+  inline void set_pageurl(const char* value, size_t size);
+  inline ::std::string* mutable_pageurl();
+  inline ::std::string* release_pageurl();
+  inline void set_allocated_pageurl(::std::string* pageurl);
+
+  // optional string downloadurl = 3;
+  inline bool has_downloadurl() const;
+  inline void clear_downloadurl();
+  static const int kDownloadurlFieldNumber = 3;
+  inline const ::std::string& downloadurl() const;
+  inline void set_downloadurl(const ::std::string& value);
+  inline void set_downloadurl(const char* value);
+  inline void set_downloadurl(const char* value, size_t size);
+  inline ::std::string* mutable_downloadurl();
+  inline ::std::string* release_downloadurl();
+  inline void set_allocated_downloadurl(::std::string* downloadurl);
+
+  // @@protoc_insertion_point(class_scope:NFMsg.AckVersionCheck)
+ private:
+  inline void set_has_returncode();
+  inline void clear_has_returncode();
+  inline void set_has_pageurl();
+  inline void clear_has_pageurl();
+  inline void set_has_downloadurl();
+  inline void clear_has_downloadurl();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* pageurl_;
+  ::std::string* downloadurl_;
+  ::google::protobuf::int32 returncode_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgPreGame_2eproto();
+  friend void protobuf_AssignDesc_NFMsgPreGame_2eproto();
+  friend void protobuf_ShutdownFile_NFMsgPreGame_2eproto();
+
+  void InitAsDefaultInstance();
+  static AckVersionCheck* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -2992,6 +3245,220 @@ inline void AckEventResult::set_allocated_event_client(::NFMsg::Ident* event_cli
     set_has_event_client();
   } else {
     clear_has_event_client();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// ReqCheckVersion
+
+// required int32 platformCode = 1;
+inline bool ReqCheckVersion::has_platformcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ReqCheckVersion::set_has_platformcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ReqCheckVersion::clear_has_platformcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ReqCheckVersion::clear_platformcode() {
+  platformcode_ = 0;
+  clear_has_platformcode();
+}
+inline ::google::protobuf::int32 ReqCheckVersion::platformcode() const {
+  return platformcode_;
+}
+inline void ReqCheckVersion::set_platformcode(::google::protobuf::int32 value) {
+  set_has_platformcode();
+  platformcode_ = value;
+}
+
+// required int32 verionCode = 2;
+inline bool ReqCheckVersion::has_verioncode() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ReqCheckVersion::set_has_verioncode() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ReqCheckVersion::clear_has_verioncode() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ReqCheckVersion::clear_verioncode() {
+  verioncode_ = 0;
+  clear_has_verioncode();
+}
+inline ::google::protobuf::int32 ReqCheckVersion::verioncode() const {
+  return verioncode_;
+}
+inline void ReqCheckVersion::set_verioncode(::google::protobuf::int32 value) {
+  set_has_verioncode();
+  verioncode_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// AckVersionCheck
+
+// required int32 returncode = 1;
+inline bool AckVersionCheck::has_returncode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void AckVersionCheck::set_has_returncode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void AckVersionCheck::clear_has_returncode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void AckVersionCheck::clear_returncode() {
+  returncode_ = 0;
+  clear_has_returncode();
+}
+inline ::google::protobuf::int32 AckVersionCheck::returncode() const {
+  return returncode_;
+}
+inline void AckVersionCheck::set_returncode(::google::protobuf::int32 value) {
+  set_has_returncode();
+  returncode_ = value;
+}
+
+// optional string pageurl = 2;
+inline bool AckVersionCheck::has_pageurl() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void AckVersionCheck::set_has_pageurl() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void AckVersionCheck::clear_has_pageurl() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void AckVersionCheck::clear_pageurl() {
+  if (pageurl_ != &::google::protobuf::internal::kEmptyString) {
+    pageurl_->clear();
+  }
+  clear_has_pageurl();
+}
+inline const ::std::string& AckVersionCheck::pageurl() const {
+  return *pageurl_;
+}
+inline void AckVersionCheck::set_pageurl(const ::std::string& value) {
+  set_has_pageurl();
+  if (pageurl_ == &::google::protobuf::internal::kEmptyString) {
+    pageurl_ = new ::std::string;
+  }
+  pageurl_->assign(value);
+}
+inline void AckVersionCheck::set_pageurl(const char* value) {
+  set_has_pageurl();
+  if (pageurl_ == &::google::protobuf::internal::kEmptyString) {
+    pageurl_ = new ::std::string;
+  }
+  pageurl_->assign(value);
+}
+inline void AckVersionCheck::set_pageurl(const char* value, size_t size) {
+  set_has_pageurl();
+  if (pageurl_ == &::google::protobuf::internal::kEmptyString) {
+    pageurl_ = new ::std::string;
+  }
+  pageurl_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* AckVersionCheck::mutable_pageurl() {
+  set_has_pageurl();
+  if (pageurl_ == &::google::protobuf::internal::kEmptyString) {
+    pageurl_ = new ::std::string;
+  }
+  return pageurl_;
+}
+inline ::std::string* AckVersionCheck::release_pageurl() {
+  clear_has_pageurl();
+  if (pageurl_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = pageurl_;
+    pageurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void AckVersionCheck::set_allocated_pageurl(::std::string* pageurl) {
+  if (pageurl_ != &::google::protobuf::internal::kEmptyString) {
+    delete pageurl_;
+  }
+  if (pageurl) {
+    set_has_pageurl();
+    pageurl_ = pageurl;
+  } else {
+    clear_has_pageurl();
+    pageurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string downloadurl = 3;
+inline bool AckVersionCheck::has_downloadurl() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void AckVersionCheck::set_has_downloadurl() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void AckVersionCheck::clear_has_downloadurl() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void AckVersionCheck::clear_downloadurl() {
+  if (downloadurl_ != &::google::protobuf::internal::kEmptyString) {
+    downloadurl_->clear();
+  }
+  clear_has_downloadurl();
+}
+inline const ::std::string& AckVersionCheck::downloadurl() const {
+  return *downloadurl_;
+}
+inline void AckVersionCheck::set_downloadurl(const ::std::string& value) {
+  set_has_downloadurl();
+  if (downloadurl_ == &::google::protobuf::internal::kEmptyString) {
+    downloadurl_ = new ::std::string;
+  }
+  downloadurl_->assign(value);
+}
+inline void AckVersionCheck::set_downloadurl(const char* value) {
+  set_has_downloadurl();
+  if (downloadurl_ == &::google::protobuf::internal::kEmptyString) {
+    downloadurl_ = new ::std::string;
+  }
+  downloadurl_->assign(value);
+}
+inline void AckVersionCheck::set_downloadurl(const char* value, size_t size) {
+  set_has_downloadurl();
+  if (downloadurl_ == &::google::protobuf::internal::kEmptyString) {
+    downloadurl_ = new ::std::string;
+  }
+  downloadurl_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* AckVersionCheck::mutable_downloadurl() {
+  set_has_downloadurl();
+  if (downloadurl_ == &::google::protobuf::internal::kEmptyString) {
+    downloadurl_ = new ::std::string;
+  }
+  return downloadurl_;
+}
+inline ::std::string* AckVersionCheck::release_downloadurl() {
+  clear_has_downloadurl();
+  if (downloadurl_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = downloadurl_;
+    downloadurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void AckVersionCheck::set_allocated_downloadurl(::std::string* downloadurl) {
+  if (downloadurl_ != &::google::protobuf::internal::kEmptyString) {
+    delete downloadurl_;
+  }
+  if (downloadurl) {
+    set_has_downloadurl();
+    downloadurl_ = downloadurl;
+  } else {
+    clear_has_downloadurl();
+    downloadurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 
@@ -5841,6 +6308,10 @@ inline void RoleOfflineNotify::set_proxy(::google::protobuf::int32 value) {
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::NFMsg::AckVersionCheck_ErrCode>() {
+  return ::NFMsg::AckVersionCheck_ErrCode_descriptor();
+}
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::NFMsg::EServerState>() {
   return ::NFMsg::EServerState_descriptor();

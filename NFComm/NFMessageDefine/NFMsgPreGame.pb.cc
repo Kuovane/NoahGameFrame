@@ -29,6 +29,13 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* AckEventResult_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   AckEventResult_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ReqCheckVersion_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ReqCheckVersion_reflection_ = NULL;
+const ::google::protobuf::Descriptor* AckVersionCheck_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  AckVersionCheck_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* AckVersionCheck_ErrCode_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* ReqAccountLogin_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ReqAccountLogin_reflection_ = NULL;
@@ -149,7 +156,41 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AckEventResult));
-  ReqAccountLogin_descriptor_ = file->message_type(3);
+  ReqCheckVersion_descriptor_ = file->message_type(3);
+  static const int ReqCheckVersion_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqCheckVersion, platformcode_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqCheckVersion, verioncode_),
+  };
+  ReqCheckVersion_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      ReqCheckVersion_descriptor_,
+      ReqCheckVersion::default_instance_,
+      ReqCheckVersion_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqCheckVersion, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqCheckVersion, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(ReqCheckVersion));
+  AckVersionCheck_descriptor_ = file->message_type(4);
+  static const int AckVersionCheck_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AckVersionCheck, returncode_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AckVersionCheck, pageurl_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AckVersionCheck, downloadurl_),
+  };
+  AckVersionCheck_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      AckVersionCheck_descriptor_,
+      AckVersionCheck::default_instance_,
+      AckVersionCheck_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AckVersionCheck, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AckVersionCheck, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(AckVersionCheck));
+  AckVersionCheck_ErrCode_descriptor_ = AckVersionCheck_descriptor_->enum_type(0);
+  ReqAccountLogin_descriptor_ = file->message_type(5);
   static const int ReqAccountLogin_offsets_[11] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqAccountLogin, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqAccountLogin, password_),
@@ -174,7 +215,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ReqAccountLogin));
-  ReqAccountLogout_descriptor_ = file->message_type(4);
+  ReqAccountLogout_descriptor_ = file->message_type(6);
   static const int ReqAccountLogout_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqAccountLogout, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqAccountLogout, extra_info_),
@@ -190,7 +231,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ReqAccountLogout));
-  ServerInfo_descriptor_ = file->message_type(5);
+  ServerInfo_descriptor_ = file->message_type(7);
   static const int ServerInfo_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfo, server_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerInfo, name_),
@@ -208,7 +249,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ServerInfo));
-  ReqServerList_descriptor_ = file->message_type(6);
+  ReqServerList_descriptor_ = file->message_type(8);
   static const int ReqServerList_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqServerList, type_),
   };
@@ -223,7 +264,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ReqServerList));
-  AckServerList_descriptor_ = file->message_type(7);
+  AckServerList_descriptor_ = file->message_type(9);
   static const int AckServerList_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AckServerList, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AckServerList, info_),
@@ -239,7 +280,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AckServerList));
-  ReqConnectWorld_descriptor_ = file->message_type(8);
+  ReqConnectWorld_descriptor_ = file->message_type(10);
   static const int ReqConnectWorld_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqConnectWorld, world_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqConnectWorld, account_),
@@ -257,7 +298,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ReqConnectWorld));
-  AckConnectWorldResult_descriptor_ = file->message_type(9);
+  AckConnectWorldResult_descriptor_ = file->message_type(11);
   static const int AckConnectWorldResult_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AckConnectWorldResult, world_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AckConnectWorldResult, sender_),
@@ -278,7 +319,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AckConnectWorldResult));
-  ReqSelectServer_descriptor_ = file->message_type(10);
+  ReqSelectServer_descriptor_ = file->message_type(12);
   static const int ReqSelectServer_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqSelectServer, world_id_),
   };
@@ -293,7 +334,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ReqSelectServer));
-  ReqKickFromWorld_descriptor_ = file->message_type(11);
+  ReqKickFromWorld_descriptor_ = file->message_type(13);
   static const int ReqKickFromWorld_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqKickFromWorld, world_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqKickFromWorld, account_),
@@ -309,7 +350,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ReqKickFromWorld));
-  ReqRoleList_descriptor_ = file->message_type(12);
+  ReqRoleList_descriptor_ = file->message_type(14);
   static const int ReqRoleList_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqRoleList, game_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqRoleList, account_),
@@ -325,7 +366,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ReqRoleList));
-  RoleLiteInfo_descriptor_ = file->message_type(13);
+  RoleLiteInfo_descriptor_ = file->message_type(15);
   static const int RoleLiteInfo_offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleLiteInfo, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleLiteInfo, career_),
@@ -351,7 +392,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleLiteInfo));
-  AckRoleLiteInfoList_descriptor_ = file->message_type(14);
+  AckRoleLiteInfoList_descriptor_ = file->message_type(16);
   static const int AckRoleLiteInfoList_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AckRoleLiteInfoList, char_data_),
   };
@@ -366,7 +407,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AckRoleLiteInfoList));
-  ReqCreateRole_descriptor_ = file->message_type(15);
+  ReqCreateRole_descriptor_ = file->message_type(17);
   static const int ReqCreateRole_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqCreateRole, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqCreateRole, career_),
@@ -386,7 +427,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ReqCreateRole));
-  ReqDeleteRole_descriptor_ = file->message_type(16);
+  ReqDeleteRole_descriptor_ = file->message_type(18);
   static const int ReqDeleteRole_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqDeleteRole, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqDeleteRole, name_),
@@ -403,7 +444,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ReqDeleteRole));
-  ReqRecoverRole_descriptor_ = file->message_type(17);
+  ReqRecoverRole_descriptor_ = file->message_type(19);
   static const int ReqRecoverRole_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqRecoverRole, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqRecoverRole, name_),
@@ -420,7 +461,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ReqRecoverRole));
-  ServerHeartBeat_descriptor_ = file->message_type(18);
+  ServerHeartBeat_descriptor_ = file->message_type(20);
   static const int ServerHeartBeat_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServerHeartBeat, count_),
   };
@@ -435,7 +476,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ServerHeartBeat));
-  RoleOnlineNotify_descriptor_ = file->message_type(19);
+  RoleOnlineNotify_descriptor_ = file->message_type(21);
   static const int RoleOnlineNotify_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleOnlineNotify, self_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleOnlineNotify, guild_),
@@ -453,7 +494,7 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RoleOnlineNotify));
-  RoleOfflineNotify_descriptor_ = file->message_type(20);
+  RoleOfflineNotify_descriptor_ = file->message_type(22);
   static const int RoleOfflineNotify_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleOfflineNotify, self_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleOfflineNotify, guild_),
@@ -491,6 +532,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     ServerInfoReportList_descriptor_, &ServerInfoReportList::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     AckEventResult_descriptor_, &AckEventResult::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    ReqCheckVersion_descriptor_, &ReqCheckVersion::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    AckVersionCheck_descriptor_, &AckVersionCheck::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     ReqAccountLogin_descriptor_, &ReqAccountLogin::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -538,6 +583,10 @@ void protobuf_ShutdownFile_NFMsgPreGame_2eproto() {
   delete ServerInfoReportList_reflection_;
   delete AckEventResult::default_instance_;
   delete AckEventResult_reflection_;
+  delete ReqCheckVersion::default_instance_;
+  delete ReqCheckVersion_reflection_;
+  delete AckVersionCheck::default_instance_;
+  delete AckVersionCheck_reflection_;
   delete ReqAccountLogin::default_instance_;
   delete ReqAccountLogin_reflection_;
   delete ReqAccountLogout::default_instance_;
@@ -597,60 +646,67 @@ void protobuf_AddDesc_NFMsgPreGame_2eproto() {
     "tResult\022)\n\nevent_code\030\001 \002(\0162\025.NFMsg.EGam"
     "eEventCode\022\"\n\014event_object\030\002 \001(\0132\014.NFMsg"
     ".Ident\022\"\n\014event_client\030\003 \001(\0132\014.NFMsg.Ide"
-    "nt\"\354\001\n\017ReqAccountLogin\022\017\n\007account\030\002 \002(\014\022"
-    "\020\n\010password\030\003 \002(\014\022\025\n\rsecurity_code\030\004 \002(\014"
-    "\022\020\n\010signBuff\030\005 \002(\014\022\025\n\rclientVersion\030\006 \002("
-    "\005\022\021\n\tloginMode\030\007 \002(\005\022\020\n\010clientIP\030\010 \002(\005\022\021"
-    "\n\tclientMAC\030\t \002(\003\022\023\n\013device_info\030\n \002(\014\022\022"
-    "\n\nextra_info\030\013 \002(\014\022\025\n\rplatform_type\030\014 \001("
-    "\005\"7\n\020ReqAccountLogout\022\017\n\007account\030\002 \002(\014\022\022"
-    "\n\nextra_info\030\003 \002(\014\"f\n\nServerInfo\022\021\n\tserv"
-    "er_id\030\001 \002(\005\022\014\n\004name\030\002 \002(\014\022\022\n\nwait_count\030"
-    "\003 \002(\005\022#\n\006status\030\004 \002(\0162\023.NFMsg.EServerSta"
-    "te\"7\n\rReqServerList\022&\n\004type\030\001 \002(\0162\030.NFMs"
-    "g.ReqServerListType\"X\n\rAckServerList\022&\n\004"
-    "type\030\001 \002(\0162\030.NFMsg.ReqServerListType\022\037\n\004"
-    "info\030\002 \003(\0132\021.NFMsg.ServerInfo\"d\n\017ReqConn"
-    "ectWorld\022\020\n\010world_id\030\001 \002(\005\022\017\n\007account\030\002 "
-    "\001(\014\022\034\n\006sender\030\003 \001(\0132\014.NFMsg.Ident\022\020\n\010log"
-    "in_id\030\004 \001(\005\"\243\001\n\025AckConnectWorldResult\022\020\n"
-    "\010world_id\030\001 \002(\005\022\034\n\006sender\030\002 \002(\0132\014.NFMsg."
-    "Ident\022\020\n\010login_id\030\003 \002(\005\022\017\n\007account\030\004 \002(\014"
-    "\022\020\n\010world_ip\030\005 \002(\014\022\022\n\nworld_port\030\006 \002(\005\022\021"
-    "\n\tworld_key\030\007 \002(\014\"#\n\017ReqSelectServer\022\020\n\010"
-    "world_id\030\001 \002(\005\"5\n\020ReqKickFromWorld\022\020\n\010wo"
-    "rld_id\030\001 \002(\005\022\017\n\007account\030\002 \002(\014\"/\n\013ReqRole"
-    "List\022\017\n\007game_id\030\001 \002(\005\022\017\n\007account\030\002 \002(\014\"\373"
-    "\001\n\014RoleLiteInfo\022\030\n\002id\030\001 \002(\0132\014.NFMsg.Iden"
-    "t\022\016\n\006career\030\002 \002(\005\022\013\n\003sex\030\003 \002(\005\022\014\n\004race\030\004"
-    " \002(\005\022\021\n\tnoob_name\030\005 \002(\014\022\017\n\007game_id\030\006 \002(\005"
-    "\022\022\n\nrole_level\030\007 \002(\005\022\023\n\013delete_time\030\010 \002("
-    "\005\022\020\n\010reg_time\030\t \002(\005\022\031\n\021last_offline_time"
-    "\030\n \002(\005\022\027\n\017last_offline_ip\030\013 \002(\005\022\023\n\013view_"
-    "record\030\014 \002(\014\"=\n\023AckRoleLiteInfoList\022&\n\tc"
-    "har_data\030\001 \003(\0132\023.NFMsg.RoleLiteInfo\"o\n\rR"
-    "eqCreateRole\022\017\n\007account\030\001 \002(\014\022\016\n\006career\030"
-    "\002 \002(\005\022\013\n\003sex\030\003 \002(\005\022\014\n\004race\030\004 \002(\005\022\021\n\tnoob"
-    "_name\030\005 \002(\014\022\017\n\007game_id\030\006 \002(\005\"\?\n\rReqDelet"
-    "eRole\022\017\n\007account\030\001 \002(\014\022\014\n\004name\030\002 \002(\014\022\017\n\007"
-    "game_id\030\003 \002(\005\"@\n\016ReqRecoverRole\022\017\n\007accou"
-    "nt\030\001 \002(\014\022\014\n\004name\030\002 \002(\014\022\017\n\007game_id\030\003 \002(\005\""
-    " \n\017ServerHeartBeat\022\r\n\005count\030\001 \001(\005\"h\n\020Rol"
-    "eOnlineNotify\022\032\n\004self\030\001 \002(\0132\014.NFMsg.Iden"
-    "t\022\033\n\005guild\030\002 \002(\0132\014.NFMsg.Ident\022\014\n\004game\030\003"
-    " \002(\005\022\r\n\005proxy\030\004 \002(\005\"i\n\021RoleOfflineNotify"
-    "\022\032\n\004self\030\001 \002(\0132\014.NFMsg.Ident\022\033\n\005guild\030\002 "
-    "\002(\0132\014.NFMsg.Ident\022\014\n\004game\030\003 \002(\005\022\r\n\005proxy"
-    "\030\004 \002(\005*Z\n\014EServerState\022\r\n\tEST_CRASH\020\000\022\016\n"
-    "\nEST_NARMAL\020\001\022\014\n\010EST_BUSY\020\002\022\014\n\010EST_FIRE\020"
-    "\003\022\017\n\013EST_MAINTEN\020\004*@\n\021ReqServerListType\022"
-    "\025\n\021RSLT_WORLD_SERVER\020\000\022\024\n\020RSLT_GAMES_ERV"
-    "ER\020\001", 2404);
+    "nt\";\n\017ReqCheckVersion\022\024\n\014platformCode\030\001 "
+    "\002(\005\022\022\n\nverionCode\030\002 \002(\005\"\223\001\n\017AckVersionCh"
+    "eck\022\022\n\nreturncode\030\001 \002(\005\022\017\n\007pageurl\030\002 \001(\t"
+    "\022\023\n\013downloadurl\030\003 \001(\t\"F\n\007ErrCode\022\n\n\006Upda"
+    "te\020\000\022\r\n\tUpdateLua\020\001\022\021\n\rUpdatePackage\020\002\022\r"
+    "\n\tDisUpdate\020\003\"\354\001\n\017ReqAccountLogin\022\017\n\007acc"
+    "ount\030\002 \002(\014\022\020\n\010password\030\003 \002(\014\022\025\n\rsecurity"
+    "_code\030\004 \002(\014\022\020\n\010signBuff\030\005 \002(\014\022\025\n\rclientV"
+    "ersion\030\006 \002(\005\022\021\n\tloginMode\030\007 \002(\005\022\020\n\010clien"
+    "tIP\030\010 \002(\005\022\021\n\tclientMAC\030\t \002(\003\022\023\n\013device_i"
+    "nfo\030\n \002(\014\022\022\n\nextra_info\030\013 \002(\014\022\025\n\rplatfor"
+    "m_type\030\014 \001(\005\"7\n\020ReqAccountLogout\022\017\n\007acco"
+    "unt\030\002 \002(\014\022\022\n\nextra_info\030\003 \002(\014\"f\n\nServerI"
+    "nfo\022\021\n\tserver_id\030\001 \002(\005\022\014\n\004name\030\002 \002(\014\022\022\n\n"
+    "wait_count\030\003 \002(\005\022#\n\006status\030\004 \002(\0162\023.NFMsg"
+    ".EServerState\"7\n\rReqServerList\022&\n\004type\030\001"
+    " \002(\0162\030.NFMsg.ReqServerListType\"X\n\rAckSer"
+    "verList\022&\n\004type\030\001 \002(\0162\030.NFMsg.ReqServerL"
+    "istType\022\037\n\004info\030\002 \003(\0132\021.NFMsg.ServerInfo"
+    "\"d\n\017ReqConnectWorld\022\020\n\010world_id\030\001 \002(\005\022\017\n"
+    "\007account\030\002 \001(\014\022\034\n\006sender\030\003 \001(\0132\014.NFMsg.I"
+    "dent\022\020\n\010login_id\030\004 \001(\005\"\243\001\n\025AckConnectWor"
+    "ldResult\022\020\n\010world_id\030\001 \002(\005\022\034\n\006sender\030\002 \002"
+    "(\0132\014.NFMsg.Ident\022\020\n\010login_id\030\003 \002(\005\022\017\n\007ac"
+    "count\030\004 \002(\014\022\020\n\010world_ip\030\005 \002(\014\022\022\n\nworld_p"
+    "ort\030\006 \002(\005\022\021\n\tworld_key\030\007 \002(\014\"#\n\017ReqSelec"
+    "tServer\022\020\n\010world_id\030\001 \002(\005\"5\n\020ReqKickFrom"
+    "World\022\020\n\010world_id\030\001 \002(\005\022\017\n\007account\030\002 \002(\014"
+    "\"/\n\013ReqRoleList\022\017\n\007game_id\030\001 \002(\005\022\017\n\007acco"
+    "unt\030\002 \002(\014\"\373\001\n\014RoleLiteInfo\022\030\n\002id\030\001 \002(\0132\014"
+    ".NFMsg.Ident\022\016\n\006career\030\002 \002(\005\022\013\n\003sex\030\003 \002("
+    "\005\022\014\n\004race\030\004 \002(\005\022\021\n\tnoob_name\030\005 \002(\014\022\017\n\007ga"
+    "me_id\030\006 \002(\005\022\022\n\nrole_level\030\007 \002(\005\022\023\n\013delet"
+    "e_time\030\010 \002(\005\022\020\n\010reg_time\030\t \002(\005\022\031\n\021last_o"
+    "ffline_time\030\n \002(\005\022\027\n\017last_offline_ip\030\013 \002"
+    "(\005\022\023\n\013view_record\030\014 \002(\014\"=\n\023AckRoleLiteIn"
+    "foList\022&\n\tchar_data\030\001 \003(\0132\023.NFMsg.RoleLi"
+    "teInfo\"o\n\rReqCreateRole\022\017\n\007account\030\001 \002(\014"
+    "\022\016\n\006career\030\002 \002(\005\022\013\n\003sex\030\003 \002(\005\022\014\n\004race\030\004 "
+    "\002(\005\022\021\n\tnoob_name\030\005 \002(\014\022\017\n\007game_id\030\006 \002(\005\""
+    "\?\n\rReqDeleteRole\022\017\n\007account\030\001 \002(\014\022\014\n\004nam"
+    "e\030\002 \002(\014\022\017\n\007game_id\030\003 \002(\005\"@\n\016ReqRecoverRo"
+    "le\022\017\n\007account\030\001 \002(\014\022\014\n\004name\030\002 \002(\014\022\017\n\007gam"
+    "e_id\030\003 \002(\005\" \n\017ServerHeartBeat\022\r\n\005count\030\001"
+    " \001(\005\"h\n\020RoleOnlineNotify\022\032\n\004self\030\001 \002(\0132\014"
+    ".NFMsg.Ident\022\033\n\005guild\030\002 \002(\0132\014.NFMsg.Iden"
+    "t\022\014\n\004game\030\003 \002(\005\022\r\n\005proxy\030\004 \002(\005\"i\n\021RoleOf"
+    "flineNotify\022\032\n\004self\030\001 \002(\0132\014.NFMsg.Ident\022"
+    "\033\n\005guild\030\002 \002(\0132\014.NFMsg.Ident\022\014\n\004game\030\003 \002"
+    "(\005\022\r\n\005proxy\030\004 \002(\005*Z\n\014EServerState\022\r\n\tEST"
+    "_CRASH\020\000\022\016\n\nEST_NARMAL\020\001\022\014\n\010EST_BUSY\020\002\022\014"
+    "\n\010EST_FIRE\020\003\022\017\n\013EST_MAINTEN\020\004*@\n\021ReqServ"
+    "erListType\022\025\n\021RSLT_WORLD_SERVER\020\000\022\024\n\020RSL"
+    "T_GAMES_ERVER\020\001", 2615);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "NFMsgPreGame.proto", &protobuf_RegisterTypes);
   ServerInfoReport::default_instance_ = new ServerInfoReport();
   ServerInfoReportList::default_instance_ = new ServerInfoReportList();
   AckEventResult::default_instance_ = new AckEventResult();
+  ReqCheckVersion::default_instance_ = new ReqCheckVersion();
+  AckVersionCheck::default_instance_ = new AckVersionCheck();
   ReqAccountLogin::default_instance_ = new ReqAccountLogin();
   ReqAccountLogout::default_instance_ = new ReqAccountLogout();
   ServerInfo::default_instance_ = new ServerInfo();
@@ -672,6 +728,8 @@ void protobuf_AddDesc_NFMsgPreGame_2eproto() {
   ServerInfoReport::default_instance_->InitAsDefaultInstance();
   ServerInfoReportList::default_instance_->InitAsDefaultInstance();
   AckEventResult::default_instance_->InitAsDefaultInstance();
+  ReqCheckVersion::default_instance_->InitAsDefaultInstance();
+  AckVersionCheck::default_instance_->InitAsDefaultInstance();
   ReqAccountLogin::default_instance_->InitAsDefaultInstance();
   ReqAccountLogout::default_instance_->InitAsDefaultInstance();
   ServerInfo::default_instance_->InitAsDefaultInstance();
@@ -1755,6 +1813,603 @@ void AckEventResult::Swap(AckEventResult* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = AckEventResult_descriptor_;
   metadata.reflection = AckEventResult_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int ReqCheckVersion::kPlatformCodeFieldNumber;
+const int ReqCheckVersion::kVerionCodeFieldNumber;
+#endif  // !_MSC_VER
+
+ReqCheckVersion::ReqCheckVersion()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void ReqCheckVersion::InitAsDefaultInstance() {
+}
+
+ReqCheckVersion::ReqCheckVersion(const ReqCheckVersion& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void ReqCheckVersion::SharedCtor() {
+  _cached_size_ = 0;
+  platformcode_ = 0;
+  verioncode_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+ReqCheckVersion::~ReqCheckVersion() {
+  SharedDtor();
+}
+
+void ReqCheckVersion::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void ReqCheckVersion::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ReqCheckVersion::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ReqCheckVersion_descriptor_;
+}
+
+const ReqCheckVersion& ReqCheckVersion::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_NFMsgPreGame_2eproto();
+  return *default_instance_;
+}
+
+ReqCheckVersion* ReqCheckVersion::default_instance_ = NULL;
+
+ReqCheckVersion* ReqCheckVersion::New() const {
+  return new ReqCheckVersion;
+}
+
+void ReqCheckVersion::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    platformcode_ = 0;
+    verioncode_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool ReqCheckVersion::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 platformCode = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &platformcode_)));
+          set_has_platformcode();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_verionCode;
+        break;
+      }
+
+      // required int32 verionCode = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_verionCode:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &verioncode_)));
+          set_has_verioncode();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void ReqCheckVersion::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 platformCode = 1;
+  if (has_platformcode()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->platformcode(), output);
+  }
+
+  // required int32 verionCode = 2;
+  if (has_verioncode()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->verioncode(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* ReqCheckVersion::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 platformCode = 1;
+  if (has_platformcode()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->platformcode(), target);
+  }
+
+  // required int32 verionCode = 2;
+  if (has_verioncode()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->verioncode(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int ReqCheckVersion::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 platformCode = 1;
+    if (has_platformcode()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->platformcode());
+    }
+
+    // required int32 verionCode = 2;
+    if (has_verioncode()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->verioncode());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ReqCheckVersion::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ReqCheckVersion* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ReqCheckVersion*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void ReqCheckVersion::MergeFrom(const ReqCheckVersion& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_platformcode()) {
+      set_platformcode(from.platformcode());
+    }
+    if (from.has_verioncode()) {
+      set_verioncode(from.verioncode());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ReqCheckVersion::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ReqCheckVersion::CopyFrom(const ReqCheckVersion& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ReqCheckVersion::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+
+  return true;
+}
+
+void ReqCheckVersion::Swap(ReqCheckVersion* other) {
+  if (other != this) {
+    std::swap(platformcode_, other->platformcode_);
+    std::swap(verioncode_, other->verioncode_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata ReqCheckVersion::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ReqCheckVersion_descriptor_;
+  metadata.reflection = ReqCheckVersion_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+const ::google::protobuf::EnumDescriptor* AckVersionCheck_ErrCode_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return AckVersionCheck_ErrCode_descriptor_;
+}
+bool AckVersionCheck_ErrCode_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const AckVersionCheck_ErrCode AckVersionCheck::Update;
+const AckVersionCheck_ErrCode AckVersionCheck::UpdateLua;
+const AckVersionCheck_ErrCode AckVersionCheck::UpdatePackage;
+const AckVersionCheck_ErrCode AckVersionCheck::DisUpdate;
+const AckVersionCheck_ErrCode AckVersionCheck::ErrCode_MIN;
+const AckVersionCheck_ErrCode AckVersionCheck::ErrCode_MAX;
+const int AckVersionCheck::ErrCode_ARRAYSIZE;
+#endif  // _MSC_VER
+#ifndef _MSC_VER
+const int AckVersionCheck::kReturncodeFieldNumber;
+const int AckVersionCheck::kPageurlFieldNumber;
+const int AckVersionCheck::kDownloadurlFieldNumber;
+#endif  // !_MSC_VER
+
+AckVersionCheck::AckVersionCheck()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void AckVersionCheck::InitAsDefaultInstance() {
+}
+
+AckVersionCheck::AckVersionCheck(const AckVersionCheck& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void AckVersionCheck::SharedCtor() {
+  _cached_size_ = 0;
+  returncode_ = 0;
+  pageurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  downloadurl_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+AckVersionCheck::~AckVersionCheck() {
+  SharedDtor();
+}
+
+void AckVersionCheck::SharedDtor() {
+  if (pageurl_ != &::google::protobuf::internal::kEmptyString) {
+    delete pageurl_;
+  }
+  if (downloadurl_ != &::google::protobuf::internal::kEmptyString) {
+    delete downloadurl_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void AckVersionCheck::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* AckVersionCheck::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return AckVersionCheck_descriptor_;
+}
+
+const AckVersionCheck& AckVersionCheck::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_NFMsgPreGame_2eproto();
+  return *default_instance_;
+}
+
+AckVersionCheck* AckVersionCheck::default_instance_ = NULL;
+
+AckVersionCheck* AckVersionCheck::New() const {
+  return new AckVersionCheck;
+}
+
+void AckVersionCheck::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    returncode_ = 0;
+    if (has_pageurl()) {
+      if (pageurl_ != &::google::protobuf::internal::kEmptyString) {
+        pageurl_->clear();
+      }
+    }
+    if (has_downloadurl()) {
+      if (downloadurl_ != &::google::protobuf::internal::kEmptyString) {
+        downloadurl_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool AckVersionCheck::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 returncode = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &returncode_)));
+          set_has_returncode();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_pageurl;
+        break;
+      }
+
+      // optional string pageurl = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_pageurl:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_pageurl()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->pageurl().data(), this->pageurl().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_downloadurl;
+        break;
+      }
+
+      // optional string downloadurl = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_downloadurl:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_downloadurl()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->downloadurl().data(), this->downloadurl().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void AckVersionCheck::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 returncode = 1;
+  if (has_returncode()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->returncode(), output);
+  }
+
+  // optional string pageurl = 2;
+  if (has_pageurl()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->pageurl().data(), this->pageurl().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->pageurl(), output);
+  }
+
+  // optional string downloadurl = 3;
+  if (has_downloadurl()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->downloadurl().data(), this->downloadurl().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->downloadurl(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* AckVersionCheck::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 returncode = 1;
+  if (has_returncode()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->returncode(), target);
+  }
+
+  // optional string pageurl = 2;
+  if (has_pageurl()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->pageurl().data(), this->pageurl().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->pageurl(), target);
+  }
+
+  // optional string downloadurl = 3;
+  if (has_downloadurl()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->downloadurl().data(), this->downloadurl().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->downloadurl(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int AckVersionCheck::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 returncode = 1;
+    if (has_returncode()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->returncode());
+    }
+
+    // optional string pageurl = 2;
+    if (has_pageurl()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->pageurl());
+    }
+
+    // optional string downloadurl = 3;
+    if (has_downloadurl()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->downloadurl());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void AckVersionCheck::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const AckVersionCheck* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const AckVersionCheck*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void AckVersionCheck::MergeFrom(const AckVersionCheck& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_returncode()) {
+      set_returncode(from.returncode());
+    }
+    if (from.has_pageurl()) {
+      set_pageurl(from.pageurl());
+    }
+    if (from.has_downloadurl()) {
+      set_downloadurl(from.downloadurl());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void AckVersionCheck::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void AckVersionCheck::CopyFrom(const AckVersionCheck& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool AckVersionCheck::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void AckVersionCheck::Swap(AckVersionCheck* other) {
+  if (other != this) {
+    std::swap(returncode_, other->returncode_);
+    std::swap(pageurl_, other->pageurl_);
+    std::swap(downloadurl_, other->downloadurl_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata AckVersionCheck::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = AckVersionCheck_descriptor_;
+  metadata.reflection = AckVersionCheck_reflection_;
   return metadata;
 }
 

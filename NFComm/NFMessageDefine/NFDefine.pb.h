@@ -142,6 +142,8 @@ enum EGameMsgID {
   EGMI_REQ_LOGIN = 101,
   EGMI_ACK_LOGIN = 102,
   EGMI_REQ_LOGOUT = 103,
+  EGMI_REQ_VERSION = 106,
+  EGMI_ACK_VERSION = 107,
   EGMI_REQ_WORLD_LIST = 110,
   EGMI_ACK_WORLD_LIST = 111,
   EGMI_REQ_CONNECT_WORLD = 112,
@@ -744,11 +746,12 @@ enum EGameElementType {
   EELEMENTTYPE_LIGHT = 1,
   EELEMENTTYPE_WIND = 2,
   EELEMENTTYPE_ICE = 3,
-  EELEMENTTYPE_POISON = 4
+  EELEMENTTYPE_POISON = 4,
+  EELEMENTTYPE_DARK = 5
 };
 LIBPROTOC_EXPORT bool EGameElementType_IsValid(int value);
 const EGameElementType EGameElementType_MIN = EELEMENTTYPE_FIRE;
-const EGameElementType EGameElementType_MAX = EELEMENTTYPE_POISON;
+const EGameElementType EGameElementType_MAX = EELEMENTTYPE_DARK;
 const int EGameElementType_ARRAYSIZE = EGameElementType_MAX + 1;
 
 LIBPROTOC_EXPORT const ::google::protobuf::EnumDescriptor* EGameElementType_descriptor();
