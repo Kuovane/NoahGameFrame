@@ -134,7 +134,18 @@ void NFCLoginNet_ServerModule::OnVersionCheck(const NFSOCK nSockIndex, const int
 	}
 
 	NFMsg::AckVersionCheck xData;
-	xData.set_returncode(NFMsg::AckVersionCheck::DisUpdate);
+	if (xMsg.verioncode() < 3)
+	{
+		xData.set_returncode(NFMsg::AckVersionCheck::UpdateLua);
+		xData.set_pageurl("");
+		xData.set_downloadurl("http://127.0.0.1:9527/update.zip");
+	}
+	else
+	{
+		xData.set_returncode(NFMsg::AckVersionCheck::DisUpdate);
+	}
+	
+	
 
 	m_pNetModule->SendMsgPB(NFMsg::EGameMsgID::EGMI_ACK_VERSION, xData, nSockIndex);
 }
