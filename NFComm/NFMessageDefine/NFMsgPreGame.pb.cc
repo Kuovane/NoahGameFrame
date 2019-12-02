@@ -157,9 +157,10 @@ void protobuf_AssignDesc_NFMsgPreGame_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(AckEventResult));
   ReqCheckVersion_descriptor_ = file->message_type(3);
-  static const int ReqCheckVersion_offsets_[2] = {
+  static const int ReqCheckVersion_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqCheckVersion, platformcode_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqCheckVersion, verioncode_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ReqCheckVersion, signinfo_),
   };
   ReqCheckVersion_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -646,60 +647,60 @@ void protobuf_AddDesc_NFMsgPreGame_2eproto() {
     "tResult\022)\n\nevent_code\030\001 \002(\0162\025.NFMsg.EGam"
     "eEventCode\022\"\n\014event_object\030\002 \001(\0132\014.NFMsg"
     ".Ident\022\"\n\014event_client\030\003 \001(\0132\014.NFMsg.Ide"
-    "nt\";\n\017ReqCheckVersion\022\024\n\014platformCode\030\001 "
-    "\002(\005\022\022\n\nverionCode\030\002 \002(\005\"\223\001\n\017AckVersionCh"
-    "eck\022\022\n\nreturncode\030\001 \002(\005\022\017\n\007pageurl\030\002 \001(\t"
-    "\022\023\n\013downloadurl\030\003 \001(\t\"F\n\007ErrCode\022\n\n\006Upda"
-    "te\020\000\022\r\n\tUpdateLua\020\001\022\021\n\rUpdatePackage\020\002\022\r"
-    "\n\tDisUpdate\020\003\"\354\001\n\017ReqAccountLogin\022\017\n\007acc"
-    "ount\030\002 \002(\014\022\020\n\010password\030\003 \002(\014\022\025\n\rsecurity"
-    "_code\030\004 \002(\014\022\020\n\010signBuff\030\005 \002(\014\022\025\n\rclientV"
-    "ersion\030\006 \002(\005\022\021\n\tloginMode\030\007 \002(\005\022\020\n\010clien"
-    "tIP\030\010 \002(\005\022\021\n\tclientMAC\030\t \002(\003\022\023\n\013device_i"
-    "nfo\030\n \002(\014\022\022\n\nextra_info\030\013 \002(\014\022\025\n\rplatfor"
-    "m_type\030\014 \001(\005\"7\n\020ReqAccountLogout\022\017\n\007acco"
-    "unt\030\002 \002(\014\022\022\n\nextra_info\030\003 \002(\014\"f\n\nServerI"
-    "nfo\022\021\n\tserver_id\030\001 \002(\005\022\014\n\004name\030\002 \002(\014\022\022\n\n"
-    "wait_count\030\003 \002(\005\022#\n\006status\030\004 \002(\0162\023.NFMsg"
-    ".EServerState\"7\n\rReqServerList\022&\n\004type\030\001"
-    " \002(\0162\030.NFMsg.ReqServerListType\"X\n\rAckSer"
-    "verList\022&\n\004type\030\001 \002(\0162\030.NFMsg.ReqServerL"
-    "istType\022\037\n\004info\030\002 \003(\0132\021.NFMsg.ServerInfo"
-    "\"d\n\017ReqConnectWorld\022\020\n\010world_id\030\001 \002(\005\022\017\n"
-    "\007account\030\002 \001(\014\022\034\n\006sender\030\003 \001(\0132\014.NFMsg.I"
-    "dent\022\020\n\010login_id\030\004 \001(\005\"\243\001\n\025AckConnectWor"
-    "ldResult\022\020\n\010world_id\030\001 \002(\005\022\034\n\006sender\030\002 \002"
-    "(\0132\014.NFMsg.Ident\022\020\n\010login_id\030\003 \002(\005\022\017\n\007ac"
-    "count\030\004 \002(\014\022\020\n\010world_ip\030\005 \002(\014\022\022\n\nworld_p"
-    "ort\030\006 \002(\005\022\021\n\tworld_key\030\007 \002(\014\"#\n\017ReqSelec"
-    "tServer\022\020\n\010world_id\030\001 \002(\005\"5\n\020ReqKickFrom"
-    "World\022\020\n\010world_id\030\001 \002(\005\022\017\n\007account\030\002 \002(\014"
-    "\"/\n\013ReqRoleList\022\017\n\007game_id\030\001 \002(\005\022\017\n\007acco"
-    "unt\030\002 \002(\014\"\373\001\n\014RoleLiteInfo\022\030\n\002id\030\001 \002(\0132\014"
-    ".NFMsg.Ident\022\016\n\006career\030\002 \002(\005\022\013\n\003sex\030\003 \002("
-    "\005\022\014\n\004race\030\004 \002(\005\022\021\n\tnoob_name\030\005 \002(\014\022\017\n\007ga"
-    "me_id\030\006 \002(\005\022\022\n\nrole_level\030\007 \002(\005\022\023\n\013delet"
-    "e_time\030\010 \002(\005\022\020\n\010reg_time\030\t \002(\005\022\031\n\021last_o"
-    "ffline_time\030\n \002(\005\022\027\n\017last_offline_ip\030\013 \002"
-    "(\005\022\023\n\013view_record\030\014 \002(\014\"=\n\023AckRoleLiteIn"
-    "foList\022&\n\tchar_data\030\001 \003(\0132\023.NFMsg.RoleLi"
-    "teInfo\"o\n\rReqCreateRole\022\017\n\007account\030\001 \002(\014"
-    "\022\016\n\006career\030\002 \002(\005\022\013\n\003sex\030\003 \002(\005\022\014\n\004race\030\004 "
-    "\002(\005\022\021\n\tnoob_name\030\005 \002(\014\022\017\n\007game_id\030\006 \002(\005\""
-    "\?\n\rReqDeleteRole\022\017\n\007account\030\001 \002(\014\022\014\n\004nam"
-    "e\030\002 \002(\014\022\017\n\007game_id\030\003 \002(\005\"@\n\016ReqRecoverRo"
-    "le\022\017\n\007account\030\001 \002(\014\022\014\n\004name\030\002 \002(\014\022\017\n\007gam"
-    "e_id\030\003 \002(\005\" \n\017ServerHeartBeat\022\r\n\005count\030\001"
-    " \001(\005\"h\n\020RoleOnlineNotify\022\032\n\004self\030\001 \002(\0132\014"
-    ".NFMsg.Ident\022\033\n\005guild\030\002 \002(\0132\014.NFMsg.Iden"
-    "t\022\014\n\004game\030\003 \002(\005\022\r\n\005proxy\030\004 \002(\005\"i\n\021RoleOf"
-    "flineNotify\022\032\n\004self\030\001 \002(\0132\014.NFMsg.Ident\022"
-    "\033\n\005guild\030\002 \002(\0132\014.NFMsg.Ident\022\014\n\004game\030\003 \002"
-    "(\005\022\r\n\005proxy\030\004 \002(\005*Z\n\014EServerState\022\r\n\tEST"
-    "_CRASH\020\000\022\016\n\nEST_NARMAL\020\001\022\014\n\010EST_BUSY\020\002\022\014"
-    "\n\010EST_FIRE\020\003\022\017\n\013EST_MAINTEN\020\004*@\n\021ReqServ"
-    "erListType\022\025\n\021RSLT_WORLD_SERVER\020\000\022\024\n\020RSL"
-    "T_GAMES_ERVER\020\001", 2615);
+    "nt\"M\n\017ReqCheckVersion\022\024\n\014platformCode\030\001 "
+    "\002(\005\022\022\n\nverionCode\030\002 \002(\005\022\020\n\010signInfo\030\003 \001("
+    "\t\"\223\001\n\017AckVersionCheck\022\022\n\nreturncode\030\001 \002("
+    "\005\022\017\n\007pageurl\030\002 \001(\t\022\023\n\013downloadurl\030\003 \001(\t\""
+    "F\n\007ErrCode\022\n\n\006Update\020\000\022\r\n\tUpdateLua\020\001\022\021\n"
+    "\rUpdatePackage\020\002\022\r\n\tDisUpdate\020\003\"\354\001\n\017ReqA"
+    "ccountLogin\022\017\n\007account\030\002 \002(\014\022\020\n\010password"
+    "\030\003 \002(\014\022\025\n\rsecurity_code\030\004 \002(\014\022\020\n\010signBuf"
+    "f\030\005 \002(\014\022\025\n\rclientVersion\030\006 \002(\005\022\021\n\tloginM"
+    "ode\030\007 \002(\005\022\020\n\010clientIP\030\010 \002(\005\022\021\n\tclientMAC"
+    "\030\t \002(\003\022\023\n\013device_info\030\n \002(\014\022\022\n\nextra_inf"
+    "o\030\013 \002(\014\022\025\n\rplatform_type\030\014 \001(\005\"7\n\020ReqAcc"
+    "ountLogout\022\017\n\007account\030\002 \002(\014\022\022\n\nextra_inf"
+    "o\030\003 \002(\014\"f\n\nServerInfo\022\021\n\tserver_id\030\001 \002(\005"
+    "\022\014\n\004name\030\002 \002(\014\022\022\n\nwait_count\030\003 \002(\005\022#\n\006st"
+    "atus\030\004 \002(\0162\023.NFMsg.EServerState\"7\n\rReqSe"
+    "rverList\022&\n\004type\030\001 \002(\0162\030.NFMsg.ReqServer"
+    "ListType\"X\n\rAckServerList\022&\n\004type\030\001 \002(\0162"
+    "\030.NFMsg.ReqServerListType\022\037\n\004info\030\002 \003(\0132"
+    "\021.NFMsg.ServerInfo\"d\n\017ReqConnectWorld\022\020\n"
+    "\010world_id\030\001 \002(\005\022\017\n\007account\030\002 \001(\014\022\034\n\006send"
+    "er\030\003 \001(\0132\014.NFMsg.Ident\022\020\n\010login_id\030\004 \001(\005"
+    "\"\243\001\n\025AckConnectWorldResult\022\020\n\010world_id\030\001"
+    " \002(\005\022\034\n\006sender\030\002 \002(\0132\014.NFMsg.Ident\022\020\n\010lo"
+    "gin_id\030\003 \002(\005\022\017\n\007account\030\004 \002(\014\022\020\n\010world_i"
+    "p\030\005 \002(\014\022\022\n\nworld_port\030\006 \002(\005\022\021\n\tworld_key"
+    "\030\007 \002(\014\"#\n\017ReqSelectServer\022\020\n\010world_id\030\001 "
+    "\002(\005\"5\n\020ReqKickFromWorld\022\020\n\010world_id\030\001 \002("
+    "\005\022\017\n\007account\030\002 \002(\014\"/\n\013ReqRoleList\022\017\n\007gam"
+    "e_id\030\001 \002(\005\022\017\n\007account\030\002 \002(\014\"\373\001\n\014RoleLite"
+    "Info\022\030\n\002id\030\001 \002(\0132\014.NFMsg.Ident\022\016\n\006career"
+    "\030\002 \002(\005\022\013\n\003sex\030\003 \002(\005\022\014\n\004race\030\004 \002(\005\022\021\n\tnoo"
+    "b_name\030\005 \002(\014\022\017\n\007game_id\030\006 \002(\005\022\022\n\nrole_le"
+    "vel\030\007 \002(\005\022\023\n\013delete_time\030\010 \002(\005\022\020\n\010reg_ti"
+    "me\030\t \002(\005\022\031\n\021last_offline_time\030\n \002(\005\022\027\n\017l"
+    "ast_offline_ip\030\013 \002(\005\022\023\n\013view_record\030\014 \002("
+    "\014\"=\n\023AckRoleLiteInfoList\022&\n\tchar_data\030\001 "
+    "\003(\0132\023.NFMsg.RoleLiteInfo\"o\n\rReqCreateRol"
+    "e\022\017\n\007account\030\001 \002(\014\022\016\n\006career\030\002 \002(\005\022\013\n\003se"
+    "x\030\003 \002(\005\022\014\n\004race\030\004 \002(\005\022\021\n\tnoob_name\030\005 \002(\014"
+    "\022\017\n\007game_id\030\006 \002(\005\"\?\n\rReqDeleteRole\022\017\n\007ac"
+    "count\030\001 \002(\014\022\014\n\004name\030\002 \002(\014\022\017\n\007game_id\030\003 \002"
+    "(\005\"@\n\016ReqRecoverRole\022\017\n\007account\030\001 \002(\014\022\014\n"
+    "\004name\030\002 \002(\014\022\017\n\007game_id\030\003 \002(\005\" \n\017ServerHe"
+    "artBeat\022\r\n\005count\030\001 \001(\005\"h\n\020RoleOnlineNoti"
+    "fy\022\032\n\004self\030\001 \002(\0132\014.NFMsg.Ident\022\033\n\005guild\030"
+    "\002 \002(\0132\014.NFMsg.Ident\022\014\n\004game\030\003 \002(\005\022\r\n\005pro"
+    "xy\030\004 \002(\005\"i\n\021RoleOfflineNotify\022\032\n\004self\030\001 "
+    "\002(\0132\014.NFMsg.Ident\022\033\n\005guild\030\002 \002(\0132\014.NFMsg"
+    ".Ident\022\014\n\004game\030\003 \002(\005\022\r\n\005proxy\030\004 \002(\005*Z\n\014E"
+    "ServerState\022\r\n\tEST_CRASH\020\000\022\016\n\nEST_NARMAL"
+    "\020\001\022\014\n\010EST_BUSY\020\002\022\014\n\010EST_FIRE\020\003\022\017\n\013EST_MA"
+    "INTEN\020\004*@\n\021ReqServerListType\022\025\n\021RSLT_WOR"
+    "LD_SERVER\020\000\022\024\n\020RSLT_GAMES_ERVER\020\001", 2633);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "NFMsgPreGame.proto", &protobuf_RegisterTypes);
   ServerInfoReport::default_instance_ = new ServerInfoReport();
@@ -1822,6 +1823,7 @@ void AckEventResult::Swap(AckEventResult* other) {
 #ifndef _MSC_VER
 const int ReqCheckVersion::kPlatformCodeFieldNumber;
 const int ReqCheckVersion::kVerionCodeFieldNumber;
+const int ReqCheckVersion::kSignInfoFieldNumber;
 #endif  // !_MSC_VER
 
 ReqCheckVersion::ReqCheckVersion()
@@ -1842,6 +1844,7 @@ void ReqCheckVersion::SharedCtor() {
   _cached_size_ = 0;
   platformcode_ = 0;
   verioncode_ = 0;
+  signinfo_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1850,6 +1853,9 @@ ReqCheckVersion::~ReqCheckVersion() {
 }
 
 void ReqCheckVersion::SharedDtor() {
+  if (signinfo_ != &::google::protobuf::internal::kEmptyString) {
+    delete signinfo_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -1879,6 +1885,11 @@ void ReqCheckVersion::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     platformcode_ = 0;
     verioncode_ = 0;
+    if (has_signinfo()) {
+      if (signinfo_ != &::google::protobuf::internal::kEmptyString) {
+        signinfo_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1917,6 +1928,23 @@ bool ReqCheckVersion::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(26)) goto parse_signInfo;
+        break;
+      }
+
+      // optional string signInfo = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_signInfo:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_signinfo()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->signinfo().data(), this->signinfo().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1949,6 +1977,15 @@ void ReqCheckVersion::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->verioncode(), output);
   }
 
+  // optional string signInfo = 3;
+  if (has_signinfo()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->signinfo().data(), this->signinfo().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->signinfo(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1965,6 +2002,16 @@ void ReqCheckVersion::SerializeWithCachedSizes(
   // required int32 verionCode = 2;
   if (has_verioncode()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->verioncode(), target);
+  }
+
+  // optional string signInfo = 3;
+  if (has_signinfo()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->signinfo().data(), this->signinfo().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->signinfo(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1990,6 +2037,13 @@ int ReqCheckVersion::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->verioncode());
+    }
+
+    // optional string signInfo = 3;
+    if (has_signinfo()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->signinfo());
     }
 
   }
@@ -2025,6 +2079,9 @@ void ReqCheckVersion::MergeFrom(const ReqCheckVersion& from) {
     if (from.has_verioncode()) {
       set_verioncode(from.verioncode());
     }
+    if (from.has_signinfo()) {
+      set_signinfo(from.signinfo());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2051,6 +2108,7 @@ void ReqCheckVersion::Swap(ReqCheckVersion* other) {
   if (other != this) {
     std::swap(platformcode_, other->platformcode_);
     std::swap(verioncode_, other->verioncode_);
+    std::swap(signinfo_, other->signinfo_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

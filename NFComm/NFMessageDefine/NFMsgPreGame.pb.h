@@ -545,20 +545,35 @@ class LIBPROTOC_EXPORT ReqCheckVersion : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 verioncode() const;
   inline void set_verioncode(::google::protobuf::int32 value);
 
+  // optional string signInfo = 3;
+  inline bool has_signinfo() const;
+  inline void clear_signinfo();
+  static const int kSignInfoFieldNumber = 3;
+  inline const ::std::string& signinfo() const;
+  inline void set_signinfo(const ::std::string& value);
+  inline void set_signinfo(const char* value);
+  inline void set_signinfo(const char* value, size_t size);
+  inline ::std::string* mutable_signinfo();
+  inline ::std::string* release_signinfo();
+  inline void set_allocated_signinfo(::std::string* signinfo);
+
   // @@protoc_insertion_point(class_scope:NFMsg.ReqCheckVersion)
  private:
   inline void set_has_platformcode();
   inline void clear_has_platformcode();
   inline void set_has_verioncode();
   inline void clear_has_verioncode();
+  inline void set_has_signinfo();
+  inline void clear_has_signinfo();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 platformcode_;
   ::google::protobuf::int32 verioncode_;
+  ::std::string* signinfo_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void LIBPROTOC_EXPORT protobuf_AddDesc_NFMsgPreGame_2eproto();
   friend void protobuf_AssignDesc_NFMsgPreGame_2eproto();
@@ -3294,6 +3309,76 @@ inline ::google::protobuf::int32 ReqCheckVersion::verioncode() const {
 inline void ReqCheckVersion::set_verioncode(::google::protobuf::int32 value) {
   set_has_verioncode();
   verioncode_ = value;
+}
+
+// optional string signInfo = 3;
+inline bool ReqCheckVersion::has_signinfo() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ReqCheckVersion::set_has_signinfo() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ReqCheckVersion::clear_has_signinfo() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ReqCheckVersion::clear_signinfo() {
+  if (signinfo_ != &::google::protobuf::internal::kEmptyString) {
+    signinfo_->clear();
+  }
+  clear_has_signinfo();
+}
+inline const ::std::string& ReqCheckVersion::signinfo() const {
+  return *signinfo_;
+}
+inline void ReqCheckVersion::set_signinfo(const ::std::string& value) {
+  set_has_signinfo();
+  if (signinfo_ == &::google::protobuf::internal::kEmptyString) {
+    signinfo_ = new ::std::string;
+  }
+  signinfo_->assign(value);
+}
+inline void ReqCheckVersion::set_signinfo(const char* value) {
+  set_has_signinfo();
+  if (signinfo_ == &::google::protobuf::internal::kEmptyString) {
+    signinfo_ = new ::std::string;
+  }
+  signinfo_->assign(value);
+}
+inline void ReqCheckVersion::set_signinfo(const char* value, size_t size) {
+  set_has_signinfo();
+  if (signinfo_ == &::google::protobuf::internal::kEmptyString) {
+    signinfo_ = new ::std::string;
+  }
+  signinfo_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* ReqCheckVersion::mutable_signinfo() {
+  set_has_signinfo();
+  if (signinfo_ == &::google::protobuf::internal::kEmptyString) {
+    signinfo_ = new ::std::string;
+  }
+  return signinfo_;
+}
+inline ::std::string* ReqCheckVersion::release_signinfo() {
+  clear_has_signinfo();
+  if (signinfo_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = signinfo_;
+    signinfo_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void ReqCheckVersion::set_allocated_signinfo(::std::string* signinfo) {
+  if (signinfo_ != &::google::protobuf::internal::kEmptyString) {
+    delete signinfo_;
+  }
+  if (signinfo) {
+    set_has_signinfo();
+    signinfo_ = signinfo;
+  } else {
+    clear_has_signinfo();
+    signinfo_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 // -------------------------------------------------------------------

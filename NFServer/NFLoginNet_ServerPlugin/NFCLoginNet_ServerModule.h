@@ -49,6 +49,8 @@ protected:
     void OnClientDisconnect(const NFSOCK nAddress);
     void OnClientConnected(const NFSOCK nAddress);
 
+	void ReadUpdateConfig();
+
 	void OnVersionCheck(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
     void OnLoginProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
     void OnSelectWorldProcess(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen);
@@ -74,6 +76,10 @@ private:
     NFIKernelModule* m_pKernelModule;
     NFILogModule* m_pLogModule;
 	NFILoginToMasterModule* m_pLoginToMasterModule;
+
+	std::string m_sUpdateZipUrl;
+	int m_nCurVersion;
+	std::string m_sConfigName;
 };
 
 #endif

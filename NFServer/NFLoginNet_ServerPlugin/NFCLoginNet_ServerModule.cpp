@@ -9,6 +9,11 @@
 #include "NFCLoginNet_ServerModule.h"
 #include "NFLoginNet_ServerPlugin.h"
 #include "NFComm/NFMessageDefine/NFProtocolDefine.hpp"
+#include "Dependencies/RapidXML/rapidxml.hpp"
+#include "Dependencies/RapidXML/rapidxml_iterators.hpp"
+#include "Dependencies/RapidXML/rapidxml_print.hpp"
+#include "Dependencies/RapidXML/rapidxml_utils.hpp"
+#include "NFComm/NFPluginLoader/NFCPluginManager.h"
 
 bool NFCLoginNet_ServerModule::Init()
 {
@@ -19,6 +24,17 @@ bool NFCLoginNet_ServerModule::Init()
 	m_pElementModule = pPluginManager->FindModule<NFIElementModule>();
 	m_pNetClientModule = pPluginManager->FindModule<NFINetClientModule>();
 	m_pLoginToMasterModule = pPluginManager->FindModule<NFILoginToMasterModule>();
+
+
+	m_sUpdateZipUrl = "http://127.0.0.1:9527/update.zip";
+	m_nCurVersion = 2;
+	m_sConfigName = "UpdateConfig.xml";
+
+#ifdef NF_DEBUG_MODE
+	m_sConfigName = "NFDataCfg/Debug/" + m_sConfigName;
+#else
+	m_sConfigName = "NFDataCfg/Release/" + m_sConfigName;
+#endif
 
 	return true;
 }
@@ -124,6 +140,56 @@ void NFCLoginNet_ServerModule::OnClientDisconnect(const NFSOCK nAddress)
 	}
 }
 
+static bool removeFile(const char* pFileName)
+{
+#if NF_PLATFORM == NF_PLATFORM_WIN
+	return 0 == _unlink(pFileName);
+#else
+	return 0 == unlink(pFileName);
+#endif
+}
+
+void NFCLoginNet_ServerModule::ReadUpdateConfig()
+{
+	std::string strContent;
+	std::string strFilePath = pPluginManager->GetConfigPath() + m_sConfigName;
+
+#ifdef NF_DEBUG_MODE
+	std::string sTempFile = "NFDataCfg/Debug/NeedUpdate" ;
+#else
+	std::string sTempFile = "NFDataCfg/Release/NeedUpdate";
+#endif
+
+	std::string strNeedUpdate = pPluginManager->GetConfigPath() + sTempFile;
+
+	bool ret = pPluginManager->GetFileContent(strNeedUpdate, strContent);
+	if (ret)
+	{
+		pPluginManager->GetFileContent(strFilePath, strContent);
+
+		rapidxml::xml_document<> xDoc;
+		xDoc.parse<0>((char*)strContent.c_str());
+
+		rapidxml::xml_node<>* pRoot = xDoc.first_node();
+		if (pRoot)
+		{
+			rapidxml::xml_node<>* pAppVaersionNode = pRoot->first_node();
+
+			char* strTemp = pAppVaersionNode->first_attribute("value")->value();
+			m_nCurVersion = atoi(strTemp);
+
+			rapidxml::xml_node<>* pUrlNode = pAppVaersionNode->next_sibling("update_url");
+			m_sUpdateZipUrl = pUrlNode->first_attribute("value")->value();
+
+		}
+
+		removeFile(strNeedUpdate.c_str());
+	}
+
+	
+	
+}
+
 void NFCLoginNet_ServerModule::OnVersionCheck(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
 {
 	NFGUID nPlayerID;
@@ -133,12 +199,14 @@ void NFCLoginNet_ServerModule::OnVersionCheck(const NFSOCK nSockIndex, const int
 		return;
 	}
 
+	ReadUpdateConfig();
+
 	NFMsg::AckVersionCheck xData;
-	if (xMsg.verioncode() < 3)
+	if (xMsg.verioncode() < m_nCurVersion)
 	{
 		xData.set_returncode(NFMsg::AckVersionCheck::UpdateLua);
 		xData.set_pageurl("");
-		xData.set_downloadurl("http://127.0.0.1:9527/update.zip");
+		xData.set_downloadurl(m_sUpdateZipUrl);
 	}
 	else
 	{
