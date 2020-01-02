@@ -79,6 +79,9 @@ private:
 
 	std::string m_sUpdateZipUrl;
 	int m_nCurVersion;
+	int m_mainVersion;
+	int m_subVersion;
+	int m_bugVersion;
 	std::string m_sConfigName;
 };
 

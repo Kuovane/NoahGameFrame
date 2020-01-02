@@ -149,6 +149,13 @@ static bool removeFile(const char* pFileName)
 #endif
 }
 
+static void  getVersionInfo(int versionCode, int &mainVersion, int &subVersion, int &bugVersion)
+{
+	mainVersion = versionCode / 1000000;
+	subVersion = (versionCode - mainVersion * 1000000) / 1000;
+	bugVersion = versionCode - mainVersion * 1000000 - subVersion * 1000;
+}
+
 void NFCLoginNet_ServerModule::ReadUpdateConfig()
 {
 	std::string strContent;
@@ -178,6 +185,9 @@ void NFCLoginNet_ServerModule::ReadUpdateConfig()
 			char* strTemp = pAppVaersionNode->first_attribute("value")->value();
 			m_nCurVersion = atoi(strTemp);
 
+			getVersionInfo(m_nCurVersion, m_mainVersion, m_subVersion, m_bugVersion);
+	
+
 			rapidxml::xml_node<>* pUrlNode = pAppVaersionNode->next_sibling("update_url");
 			m_sUpdateZipUrl = pUrlNode->first_attribute("value")->value();
 
@@ -185,10 +195,10 @@ void NFCLoginNet_ServerModule::ReadUpdateConfig()
 
 		removeFile(strNeedUpdate.c_str());
 	}
-
-	
-	
 }
+
+
+
 
 void NFCLoginNet_ServerModule::OnVersionCheck(const NFSOCK nSockIndex, const int nMsgID, const char* msg, const uint32_t nLen)
 {
@@ -202,7 +212,10 @@ void NFCLoginNet_ServerModule::OnVersionCheck(const NFSOCK nSockIndex, const int
 	ReadUpdateConfig();
 
 	NFMsg::AckVersionCheck xData;
-	if (xMsg.verioncode() < m_nCurVersion)
+	int mainVersion, subVersion, bugVersion;
+	getVersionInfo(xMsg.verioncode(), mainVersion, subVersion, bugVersion);
+
+	if (mainVersion == m_mainVersion && subVersion == m_subVersion && bugVersion < m_bugVersion)
 	{
 		xData.set_returncode(NFMsg::AckVersionCheck::UpdateLua);
 		xData.set_pageurl("");
