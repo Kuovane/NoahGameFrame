@@ -26,8 +26,8 @@ bool NFCLoginNet_ServerModule::Init()
 	m_pLoginToMasterModule = pPluginManager->FindModule<NFILoginToMasterModule>();
 
 
-	m_sUpdateZipUrl = "http://127.0.0.1:9527/update.zip";
-	m_nCurVersion = 2;
+	//m_sUpdateZipUrl = "http://127.0.0.1:9527/update.zip";
+	//m_nCurVersion = 2;
 	m_sConfigName = "UpdateConfig.xml";
 
 #ifdef NF_DEBUG_MODE
@@ -178,18 +178,31 @@ void NFCLoginNet_ServerModule::ReadUpdateConfig()
 		xDoc.parse<0>((char*)strContent.c_str());
 
 		rapidxml::xml_node<>* pRoot = xDoc.first_node();
+		m_sUpdatePackage.clear();
 		if (pRoot)
 		{
-			rapidxml::xml_node<>* pAppVaersionNode = pRoot->first_node();
+			for (rapidxml::xml_node<>* _var = (pRoot)->first_node("package"); _var; _var = _var->next_sibling("package"))
+			{
+				NFCUpdatePackage sPackage;
+				rapidxml::xml_node<>* pAppVaersionNode = _var->first_node("vertion");
 
-			char* strTemp = pAppVaersionNode->first_attribute("value")->value();
-			m_nCurVersion = atoi(strTemp);
 
-			getVersionInfo(m_nCurVersion, m_mainVersion, m_subVersion, m_bugVersion);
-	
+				char* strTemp = pAppVaersionNode->first_attribute("value")->value();
+				sPackage.m_nVersionCode = atoi(strTemp);
 
-			rapidxml::xml_node<>* pUrlNode = pAppVaersionNode->next_sibling("update_url");
-			m_sUpdateZipUrl = pUrlNode->first_attribute("value")->value();
+				getVersionInfo(sPackage.m_nVersionCode, sPackage.m_mainVersion, sPackage.m_subVersion, sPackage.m_bugVersion);
+
+				rapidxml::xml_node<>* pUrlNode = pAppVaersionNode->next_sibling("update_url");
+				sPackage.m_sUpdateZipUrl = pUrlNode->first_attribute("value")->value();
+
+				rapidxml::xml_node<>* pSpecialNode = pAppVaersionNode->next_sibling("specialIps");
+
+
+
+				m_sUpdatePackage[sPackage.m_nVersionCode] = sPackage;
+			 }
+			
+			
 
 		}
 
@@ -215,16 +228,21 @@ void NFCLoginNet_ServerModule::OnVersionCheck(const NFSOCK nSockIndex, const int
 	int mainVersion, subVersion, bugVersion;
 	getVersionInfo(xMsg.verioncode(), mainVersion, subVersion, bugVersion);
 
-	if (mainVersion == m_mainVersion && subVersion == m_subVersion && bugVersion < m_bugVersion)
+	for (auto it = m_sUpdatePackage.begin(); it != m_sUpdatePackage.end(); it++)
 	{
-		xData.set_returncode(NFMsg::AckVersionCheck::UpdateLua);
-		xData.set_pageurl("");
-		xData.set_downloadurl(m_sUpdateZipUrl);
+		if (mainVersion == it->second.m_mainVersion && subVersion == it->second.m_subVersion && bugVersion < it->second.m_bugVersion)
+		{
+			xData.set_returncode(NFMsg::AckVersionCheck::UpdateLua);
+			xData.set_pageurl("");
+			xData.set_downloadurl(it->second.m_sUpdateZipUrl);
+			break;
+		}
+		else
+		{
+			xData.set_returncode(NFMsg::AckVersionCheck::DisUpdate);
+		}
 	}
-	else
-	{
-		xData.set_returncode(NFMsg::AckVersionCheck::DisUpdate);
-	}
+	
 	
 	
 

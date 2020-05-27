@@ -20,6 +20,16 @@
 #include "NFComm/NFPluginModule/NFIClassModule.h"
 #include "NFComm/NFPluginModule/NFILoginToMasterModule.h"
 
+class NFCUpdatePackage {
+public:
+	std::string m_sUpdateZipUrl;
+	int m_nVersionCode = 0;
+	int m_mainVersion = 0;
+	int m_subVersion = 0;
+	int m_bugVersion = 0;
+	std::vector<std::string>m_specialIps;
+};
+
 class NFCLoginNet_ServerModule
     : public NFILoginNet_ServerModule
 {
@@ -77,12 +87,9 @@ private:
     NFILogModule* m_pLogModule;
 	NFILoginToMasterModule* m_pLoginToMasterModule;
 
-	std::string m_sUpdateZipUrl;
-	int m_nCurVersion;
-	int m_mainVersion;
-	int m_subVersion;
-	int m_bugVersion;
+	//std::string m_sUpdateZipUrl;
 	std::string m_sConfigName;
+	std::map<int, NFCUpdatePackage> m_sUpdatePackage;
 };
 
 #endif
