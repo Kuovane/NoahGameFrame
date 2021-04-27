@@ -1,0 +1,7 @@
+<XML>
+	<package>
+		<vertion value="2"></vertion>
+		<update_url value="http://119.29.116.192:9527/update.zip"></update_url>
+		<!-- <update_url value="http://127.0.0.1:9527/update.zip"></update_url> -->
+	</package>
+</XML>
